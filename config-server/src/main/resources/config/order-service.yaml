@@ -2,9 +2,9 @@ server:
   port: 9052
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/order_service
-    username: postgres
-    password: kishor@2233#
+    url: jdbc:postgresql://localhost:5432/order_servic
+    username: username
+    password: your_password
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
