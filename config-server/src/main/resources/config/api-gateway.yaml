@@ -1,0 +1,40 @@
+server:
+  port: 8060
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: customer-service
+          uri: lb:http://CUSTOMER-SERVICE
+          predicates:
+            - Path=/api/v1/customer/**
+
+        - id: product-service
+          uri: lb:http://PRODUCT-SERVICE
+          predicates:
+            - Path=/api/v1/product/**
+
+        - id: order-service
+          uri: lb:http://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/order/**
+
+        - id: order-line-service
+          uri: lb:http://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/order-lines/**
+
+        - id: payment-service
+          uri: lb:http://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/v1/payment/**
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

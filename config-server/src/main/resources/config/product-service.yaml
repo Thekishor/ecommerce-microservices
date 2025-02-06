@@ -1,0 +1,25 @@
+server:
+  port: 9051
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/product_service
+    username: root
+    password: kishor@2233#
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  tracing:
+    sampling:
+      probability: 1
